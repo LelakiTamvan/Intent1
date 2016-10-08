@@ -7,23 +7,30 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+
     public static final String NAMA = "Nama";
     public static final String UMUR = "Umur";
 
-    EditText etNama;
+    EditText etNama ;
     EditText etUmur;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        etNama = (EditText) findViewById(R.id.editTextNama);
-        etUmur = (EditText) findViewById(R.id.editTextUmur);
+    protected void onCreate(Bundle savedInstanceState)
+    {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.buttonHitung).setOnClickListener(new View.OnClickListener() {
+
+        etNama = (EditText) findViewById(R.id.editTextNama);
+        etUmur = (EditText) findViewById(R.id.editTextUmur);
+
+
+        findViewById(R.id.buttonHitung).setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
             goHasil();
             }
         });
@@ -35,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         String nama = etNama.getText().toString();
         String umurStr = etUmur.getText().toString();
 
-        int umur = umurStr.isEmpty()?0:Integer.parseInt(umurStr);
+       int umur = umurStr.isEmpty()?0:Integer.parseInt(umurStr);
 
         Intent intent = new Intent(MainActivity.this, HasilActivity.class);
         intent.putExtra(NAMA, nama);
